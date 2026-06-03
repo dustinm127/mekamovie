@@ -1,0 +1,264 @@
+/* --- Design Tokens --- */
+:root {
+    --color-bg: #0a0a0c;
+    --color-text: #e0e0e0;
+    --color-text-muted: #9e9e9e;
+    --color-crimson: #7c0a0a;
+    --color-crimson-hover: #9a0d0d;
+    --color-sickly-green: #9fbca3;
+    
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #1a1a1f 0%, var(--color-bg) 100%);
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom, 
+        rgba(10, 10, 12, 0.4) 0%, 
+        rgba(10, 10, 12, 0.8) 70%, 
+        var(--color-bg) 100%
+    );
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.movie-title {
+    font-size: 5rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text);
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.8), 0 0 10px rgba(124, 10, 10, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-sickly-green);
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.coming-soon {
+    font-size: 2rem;
+    color: var(--color-crimson);
+    letter-spacing: 0.2em;
+    margin-top: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; text-shadow: 0 0 15px rgba(124, 10, 10, 0.8); }
+    100% { opacity: 0.7; }
+}
+
+/* --- Synopsis Section --- */
+.synopsis {
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 4rem;
+    max-width: 800px;
+    text-align: left;
+}
+
+.glass-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-crimson);
+}
+
+.glass-card p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-muted);
+}
+
+.glass-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Subscribe Section --- */
+.subscribe {
+    padding: 6rem 2rem 8rem 2rem;
+    text-align: center;
+}
+
+.subscribe-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subscribe-container p {
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+}
+
+.subscribe-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.subscribe-form input {
+    flex: 1;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.subscribe-form input:focus {
+    border-color: var(--color-sickly-green);
+}
+
+.subscribe-form button {
+    padding: 1rem 2rem;
+    background-color: var(--color-sickly-green);
+    color: var(--color-bg);
+    border: none;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subscribe-form button:hover {
+    background-color: #b5d2b9;
+}
+
+.success-msg {
+    display: none;
+    margin-top: 1rem;
+    color: var(--color-sickly-green);
+    font-weight: 600;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+/* --- Animations --- */
+@keyframes kenBurns {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 1.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll reveal utility */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .movie-title {
+        font-size: 3.5rem;
+    }
+    .glass-card {
+        padding: 2rem;
+    }
+    .subscribe-form {
+        flex-direction: column;
+    }
+}
