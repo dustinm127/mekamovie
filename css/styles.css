@@ -3,7 +3,7 @@
     --color-bg: #0a0a0c;
     --color-bg-elevated: #111114;
     --color-text: #e0e0e0;
-    --color-text-muted: #8a8a8a;
+    --color-text-muted: #7a7a7a;
     --color-crimson: #8b0000;
     --color-crimson-glow: rgba(139, 0, 0, 0.4);
     --color-crimson-hover: #a50000;
@@ -35,6 +35,120 @@ body {
 h1, h2, h3 {
     font-family: var(--font-heading);
     font-weight: 700;
+}
+
+/* --- Hamburger Nav --- */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem;
+}
+
+.nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+    z-index: 101;
+    position: relative;
+}
+
+.nav-bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    transition: all 0.3s ease;
+}
+
+.nav-toggle:hover .nav-bar {
+    background: var(--color-crimson);
+}
+
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 12, 0.97);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 200;
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.nav-close:hover {
+    color: var(--color-crimson);
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--color-crimson);
+    text-shadow: 0 0 20px var(--color-crimson-glow);
+}
+
+.nav-socials {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-socials a {
+    color: var(--color-text-muted);
+    transition: color 0.3s;
+}
+
+.nav-socials a:hover {
+    color: var(--color-text);
 }
 
 /* --- Hero Section --- */
@@ -93,36 +207,70 @@ h1, h2, h3 {
 
 .presents {
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 400;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--color-text-muted);
     margin-bottom: 1.5rem;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
-.movie-title {
-    font-size: 6rem;
-    font-weight: 900;
-    letter-spacing: 0.15em;
-    color: var(--color-text);
-    text-shadow: 
-        2px 2px 20px rgba(0,0,0,0.8), 
-        0 0 40px var(--color-crimson-glow),
-        0 0 80px rgba(139, 0, 0, 0.2);
-    margin-bottom: 0.5rem;
-    line-height: 1;
+/* Title Treatment Image */
+.title-treatment {
+    max-width: 550px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 30px var(--color-crimson-glow));
 }
 
 .tagline {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 300;
     color: var(--color-sickly-green);
-    letter-spacing: 0.08em;
-    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
     font-style: italic;
-    opacity: 0.9;
+    opacity: 0.85;
+}
+
+/* Trailer Button */
+.hero-cta {
+    margin-bottom: 2rem;
+}
+
+.btn-trailer {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 2rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-text-muted);
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: default;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.btn-trailer:not([disabled]) {
+    cursor: pointer;
+    border-color: var(--color-crimson);
+    color: var(--color-text);
+}
+
+.btn-trailer:not([disabled]):hover {
+    background: var(--color-crimson);
+    box-shadow: 0 0 30px var(--color-crimson-glow);
+}
+
+.btn-trailer svg {
+    opacity: 0.7;
 }
 
 .hero-meta {
@@ -130,8 +278,7 @@ h1, h2, h3 {
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    margin-bottom: 2rem;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -141,20 +288,6 @@ h1, h2, h3 {
 .meta-divider {
     color: var(--color-crimson);
     font-weight: 300;
-}
-
-.coming-soon {
-    font-size: 1.5rem;
-    color: var(--color-crimson);
-    letter-spacing: 0.3em;
-    font-weight: 700;
-    text-transform: uppercase;
-    animation: pulse 4s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; text-shadow: 0 0 20px var(--color-crimson-glow); }
 }
 
 /* Scroll Indicator */
@@ -168,81 +301,125 @@ h1, h2, h3 {
 
 .scroll-indicator span {
     display: block;
-    width: 20px;
-    height: 20px;
-    border-right: 2px solid var(--color-text-muted);
-    border-bottom: 2px solid var(--color-text-muted);
+    width: 18px;
+    height: 18px;
+    border-right: 1.5px solid var(--color-text-muted);
+    border-bottom: 1.5px solid var(--color-text-muted);
     transform: rotate(45deg);
-    animation: scrollBounce 2s infinite;
-    opacity: 0.5;
+    animation: scrollBounce 2.5s infinite;
+    opacity: 0.4;
 }
 
 @keyframes scrollBounce {
-    0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.3; }
-    50% { transform: rotate(45deg) translateY(8px); opacity: 0.7; }
+    0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.2; }
+    50% { transform: rotate(45deg) translateY(10px); opacity: 0.6; }
+}
+
+/* --- Film Details Bar --- */
+.film-details {
+    padding: 0 2rem;
+}
+
+.details-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.detail-label {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.detail-value {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text);
+    letter-spacing: 0.05em;
+}
+
+.detail-divider {
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* --- Poster Section --- */
 .poster-section {
-    padding: 4rem 2rem 6rem;
+    padding: 4rem 2rem 5rem;
     display: flex;
     justify-content: center;
 }
 
 .poster-container {
-    max-width: 500px;
+    max-width: 420px;
     width: 100%;
 }
 
 .poster-image {
     width: 100%;
     height: auto;
-    border-radius: 4px;
+    border-radius: 2px;
     box-shadow: 
         0 20px 60px rgba(0, 0, 0, 0.6),
         0 0 40px var(--color-crimson-glow);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
 .poster-image:hover {
-    transform: scale(1.02);
+    transform: scale(1.02) translateY(-4px);
     box-shadow: 
-        0 25px 70px rgba(0, 0, 0, 0.7),
+        0 30px 80px rgba(0, 0, 0, 0.7),
         0 0 60px var(--color-crimson-glow);
 }
 
 /* --- Synopsis Section --- */
 .synopsis {
-    padding: 4rem 2rem 6rem;
+    padding: 3rem 2rem 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 }
 
 .glass-card {
     background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: 8px;
-    padding: 3.5rem 4rem;
-    max-width: 750px;
+    border-radius: 4px;
+    padding: 3rem 3.5rem;
+    max-width: 700px;
 }
 
 .glass-card h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 1.5rem;
     color: var(--color-crimson);
     letter-spacing: 0.05em;
 }
 
 .glass-card p {
-    font-size: 1.05rem;
+    font-size: 1rem;
     margin-bottom: 1.25rem;
     color: var(--color-text-muted);
-    line-height: 1.8;
+    line-height: 1.9;
 }
 
 .glass-card p:last-child {
@@ -251,20 +428,20 @@ h1, h2, h3 {
 
 /* --- Credits Section --- */
 .credits-section {
-    padding: 4rem 2rem 6rem;
+    padding: 3rem 2rem 5rem;
     display: flex;
     justify-content: center;
 }
 
 .credits-container {
-    max-width: 750px;
+    max-width: 700px;
     width: 100%;
 }
 
 .credits-container h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     color: var(--color-crimson);
     letter-spacing: 0.05em;
 }
@@ -276,43 +453,43 @@ h1, h2, h3 {
 }
 
 .credit-group h3 {
-    font-size: 0.85rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     color: var(--color-text-muted);
     margin-bottom: 1.5rem;
     padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .credit-item {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.1rem;
 }
 
 .credit-role {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--color-text-muted);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.15rem;
 }
 
 .credit-name {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--color-text);
     font-weight: 500;
 }
 
 /* --- Subscribe Section --- */
 .subscribe {
-    padding: 6rem 2rem 8rem;
+    padding: 5rem 2rem 7rem;
     text-align: center;
 }
 
 .subscribe-container h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 0.75rem;
     letter-spacing: 0.05em;
 }
@@ -320,50 +497,50 @@ h1, h2, h3 {
 .subscribe-container > p {
     color: var(--color-text-muted);
     margin-bottom: 2rem;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .subscribe-form {
     display: flex;
     justify-content: center;
     gap: 0;
-    max-width: 450px;
+    max-width: 420px;
     margin: 0 auto;
 }
 
 .subscribe-form input {
     flex: 1;
-    padding: 0.9rem 1.2rem;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.85rem 1.1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-right: none;
-    border-radius: 4px 0 0 4px;
+    border-radius: 2px 0 0 2px;
     color: var(--color-text);
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     outline: none;
     transition: border-color 0.3s, background 0.3s;
 }
 
 .subscribe-form input:focus {
     border-color: var(--color-crimson);
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .subscribe-form input::placeholder {
-    color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.2);
 }
 
 .subscribe-form button {
-    padding: 0.9rem 1.8rem;
+    padding: 0.85rem 1.5rem;
     background-color: var(--color-crimson);
     color: var(--color-text);
     border: 1px solid var(--color-crimson);
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 2px 2px 0;
     font-family: var(--font-heading);
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
@@ -379,16 +556,38 @@ h1, h2, h3 {
     margin-top: 1.5rem;
     color: var(--color-sickly-green);
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 /* --- Footer --- */
 footer {
     text-align: center;
-    padding: 2.5rem 2rem;
+    padding: 2rem 2rem 2.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.footer-socials a {
     color: var(--color-text-muted);
-    font-size: 0.8rem;
+    transition: color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.footer-socials a:hover {
+    color: var(--color-text);
+    transform: translateY(-2px);
+}
+
+footer p {
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
     letter-spacing: 0.05em;
 }
 
@@ -406,10 +605,9 @@ footer {
     }
 }
 
-/* Scroll reveal utility */
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -420,15 +618,15 @@ footer {
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
-    .movie-title {
-        font-size: 3.5rem;
+    .title-treatment {
+        max-width: 320px;
     }
     .tagline {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
     }
     .hero-meta {
-        font-size: 0.75rem;
-        gap: 0.5rem;
+        font-size: 0.7rem;
+        gap: 0.4rem;
     }
     .glass-card {
         padding: 2rem 1.5rem;
@@ -441,22 +639,40 @@ footer {
         flex-direction: column;
     }
     .subscribe-form input {
-        border-right: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 4px;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
     }
     .subscribe-form button {
-        border-radius: 4px;
+        border-radius: 2px;
     }
     .poster-container {
-        max-width: 350px;
+        max-width: 300px;
+    }
+    .details-bar {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .detail-divider {
+        display: none;
+    }
+    .detail-item {
+        flex: 1;
+        min-width: 120px;
+    }
+    .nav-link {
+        font-size: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .movie-title {
-        font-size: 2.5rem;
+    .title-treatment {
+        max-width: 240px;
     }
     .presents {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
+    }
+    .btn-trailer {
+        font-size: 0.65rem;
+        padding: 0.75rem 1.5rem;
     }
 }
