@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MekaMovie - A Psychological Horror</title>
-    <meta name="description" content="A paranoid schizophrenic escapes her mental hospital and winds up in a haunted house. A new psychological horror film.">
+    <title>MEKA — A Psychological Horror Film</title>
+    <meta name="description" content="A schizophrenic woman escapes her abuser and flees to an empty house, where she must battle the voices in her head, the ghosts of her past, and a looming presence that may or may not be real.">
+    <meta property="og:title" content="MEKA — A Psychological Horror Film">
+    <meta property="og:description" content="A schizophrenic woman escapes her abuser and flees to an empty house, where she must battle the voices in her head and a looming presence that may or may not be real.">
+    <meta property="og:image" content="assets/poster.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
@@ -22,8 +27,27 @@
             <div class="hero-bg"></div>
             <div class="hero-overlay"></div>
             <div class="hero-content fade-in-up">
+                <p class="presents">Hungry Chicken Pictures presents</p>
                 <h1 class="movie-title">MEKA</h1>
-                <h2 class="coming-soon">COMING SOON</h2>
+                <p class="tagline">What's in your head isn't always yours</p>
+                <div class="hero-meta">
+                    <span>Thriller</span>
+                    <span class="meta-divider">|</span>
+                    <span>Psychological Horror</span>
+                    <span class="meta-divider">|</span>
+                    <span>2026</span>
+                </div>
+                <h2 class="coming-soon">Coming Soon</h2>
+            </div>
+            <div class="scroll-indicator">
+                <span></span>
+            </div>
+        </section>
+
+        <!-- Poster Section -->
+        <section class="poster-section" id="poster">
+            <div class="poster-container reveal">
+                <img src="assets/poster.jpg" alt="MEKA Movie Poster — A woman's face bathed in red light" class="poster-image" loading="lazy">
             </div>
         </section>
 
@@ -32,30 +56,89 @@
             <div class="glass-card reveal">
                 <h2>The Story</h2>
                 <p>
-                    Plagued by terrifying visions and a fractured reality, a paranoid schizophrenic breaks free from the sterile confines of her mental ward. Searching for sanctuary, she stumbles upon an abandoned, decaying Victorian house shrouded in fog. 
+                    A schizophrenic woman escapes her abuser and flees to an empty house, where she must battle the voices in her head, the ghosts of her past, and a looming presence that may or may not be real.
                 </p>
                 <p>
-                    But the walls hold secrets darker than her own mind. As the line between hallucination and the supernatural blurs, she must survive the night in a place where her worst fears are no longer just in her head.
+                    As her grip on reality frays, she learns that the only way to survive is to confront the truth she's been running from.
                 </p>
+            </div>
+        </section>
+
+        <!-- Cast & Crew Section -->
+        <section class="credits-section" id="credits">
+            <div class="credits-container reveal">
+                <h2>Cast & Crew</h2>
+                <div class="credits-grid">
+                    <div class="credit-group">
+                        <h3>Cast</h3>
+                        <div class="credit-item">
+                            <span class="credit-name">Tilda McSpadden</span>
+                        </div>
+                        <div class="credit-item">
+                            <span class="credit-name">Billy Blair</span>
+                        </div>
+                        <div class="credit-item">
+                            <span class="credit-name">Erica Muse</span>
+                        </div>
+                        <div class="credit-item">
+                            <span class="credit-name">Pam Doughtery</span>
+                        </div>
+                    </div>
+                    <div class="credit-group">
+                        <h3>Crew</h3>
+                        <div class="credit-item">
+                            <span class="credit-role">Written & Directed by</span>
+                            <span class="credit-name">Dustin Grant</span>
+                        </div>
+                        <div class="credit-item">
+                            <span class="credit-role">Director of Photography</span>
+                            <span class="credit-name">Michael Bradley</span>
+                        </div>
+                        <div class="credit-item">
+                            <span class="credit-role">Music by</span>
+                            <span class="credit-name">Gio Locatelli</span>
+                        </div>
+                        <div class="credit-item">
+                            <span class="credit-role">Costume Designer</span>
+                            <span class="credit-name">Summer Moore</span>
+                        </div>
+                        <div class="credit-item">
+                            <span class="credit-role">Color</span>
+                            <span class="credit-name">Dan Swierenga</span>
+                        </div>
+                        <div class="credit-item">
+                            <span class="credit-role">Edited by</span>
+                            <span class="credit-name">Dustin Grant</span>
+                        </div>
+                        <div class="credit-item">
+                            <span class="credit-role">Executive Producers</span>
+                            <span class="credit-name">Charles W. Bush &amp; Dustin Grant</span>
+                        </div>
+                        <div class="credit-item">
+                            <span class="credit-role">Poster Art by</span>
+                            <span class="credit-name">John Harrell</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
         <!-- Subscribe Section -->
         <section class="subscribe" id="subscribe">
             <div class="subscribe-container reveal">
-                <h2>Join the Nightmare</h2>
-                <p>Sign up to receive updates on the release and exclusive trailers.</p>
+                <h2>Stay Updated</h2>
+                <p>Sign up for release announcements and exclusive first looks.</p>
                 <form class="subscribe-form" id="subscribeForm">
                     <input type="email" id="emailInput" placeholder="Enter your email..." required>
-                    <button type="submit">Subscribe</button>
+                    <button type="submit">Notify Me</button>
                 </form>
-                <p class="success-msg" id="successMsg">You have been added to the list.</p>
+                <p class="success-msg" id="successMsg">You're on the list. We'll be in touch.</p>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 MekaMovie Productions. All rights reserved.</p>
+        <p>&copy; 2026 Hungry Chicken Pictures. All rights reserved.</p>
     </footer>
 
     <!-- Custom JS -->
