@@ -33,6 +33,39 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // --- Trailer Modal ---
+    const trailerBtn = document.getElementById('trailerBtn');
+    const trailerModal = document.getElementById('trailerModal');
+    const trailerModalClose = document.getElementById('trailerModalClose');
+    const trailerModalOverlay = document.getElementById('trailerModalOverlay');
+    const trailerModalIframe = document.getElementById('trailerModalIframe');
+    const youtubeUrl = 'https://www.youtube.com/embed/63HkKOAqlyQ?autoplay=1&rel=0';
+
+    function openTrailerModal() {
+        trailerModalIframe.src = youtubeUrl;
+        trailerModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeTrailerModal() {
+        trailerModal.classList.remove('active');
+        document.body.style.overflow = '';
+        // Stop video by clearing src
+        setTimeout(() => { trailerModalIframe.src = ''; }, 400);
+    }
+
+    if (trailerBtn && trailerModal) {
+        trailerBtn.addEventListener('click', openTrailerModal);
+        trailerModalClose.addEventListener('click', closeTrailerModal);
+        trailerModalOverlay.addEventListener('click', closeTrailerModal);
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && trailerModal.classList.contains('active')) {
+                closeTrailerModal();
+            }
+        });
+    }
+
     // --- Scroll Reveal Animation ---
     const reveals = document.querySelectorAll('.reveal');
 
