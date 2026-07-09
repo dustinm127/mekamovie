@@ -162,6 +162,13 @@ function onPlayerReady(event) {
 }
 
 function onPlayerStateChange(event) {
+    // YT.PlayerState.PLAYING is 1
+    if (event.data === YT.PlayerState.PLAYING) {
+        const container = document.querySelector('.hero-video-bg');
+        if (container) {
+            container.classList.add('loaded');
+        }
+    }
     // Fallback loop if timeMonitor misses it
     if (event.data === YT.PlayerState.ENDED) {
         bgPlayer.seekTo(0);
