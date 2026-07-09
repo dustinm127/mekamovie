@@ -154,12 +154,12 @@ h1, h2, h3 {
 /* --- Hero Section --- */
 .hero {
     position: relative;
-    height: 100vh;
-    min-height: 700px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    padding: 7rem 2rem 5rem;
 }
 
 .hero-bg {
@@ -360,24 +360,13 @@ h1, h2, h3 {
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* --- Trailer Section --- */
-.trailer-section {
-    padding: 4rem 2rem 5rem;
-    display: flex;
-    justify-content: center;
-}
-
-.trailer-container {
-    max-width: 800px;
+/* Direct Trailer inside Hero */
+.hero-trailer-direct {
+    margin-top: 2rem;
     width: 100%;
-}
-
-.trailer-container h2 {
-    font-size: 1.8rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--color-crimson);
-    letter-spacing: 0.05em;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .trailer-wrapper {
@@ -386,94 +375,14 @@ h1, h2, h3 {
     height: 0;
     overflow: hidden;
     border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.6),
-        0 0 40px var(--color-crimson-glow);
+        0 20px 50px rgba(0, 0, 0, 0.8),
+        0 0 30px var(--color-crimson-glow);
+    background: #000;
 }
 
 .trailer-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* --- Trailer Modal --- */
-.trailer-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-}
-
-.trailer-modal.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.trailer-modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.92);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
-.trailer-modal-content {
-    position: relative;
-    width: 90%;
-    max-width: 1000px;
-    z-index: 1001;
-    transform: scale(0.9);
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.trailer-modal.active .trailer-modal-content {
-    transform: scale(1);
-}
-
-.trailer-modal-close {
-    position: absolute;
-    top: -3rem;
-    right: 0;
-    background: none;
-    border: none;
-    color: var(--color-text-muted);
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    transition: color 0.3s;
-    line-height: 1;
-    z-index: 1002;
-}
-
-.trailer-modal-close:hover {
-    color: var(--color-text);
-}
-
-.trailer-modal-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 4px;
-    box-shadow: 0 0 60px var(--color-crimson-glow);
-}
-
-.trailer-modal-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
