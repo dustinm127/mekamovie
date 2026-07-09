@@ -128,9 +128,15 @@ let bgPlayer;
 function onYouTubeIframeAPIReady() {
     bgPlayer = new YT.Player('bg-video', {
         events: {
+            'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
         }
     });
+}
+
+function onPlayerReady(event) {
+    event.target.mute();
+    event.target.playVideo();
 }
 
 function onPlayerStateChange(event) {
