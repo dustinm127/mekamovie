@@ -184,7 +184,7 @@ h1, h2, h3 {
     height: 56.25vw; /* 16:9 */
     min-height: 100vh;
     min-width: 177.77vh; /* 16:9 */
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1.3); /* scale up to push captions out of the visible viewport boundary */
     pointer-events: none;
     opacity: 0.65; /* darken a bit to blend */
     filter: saturate(0.85) contrast(1.1);
@@ -448,20 +448,29 @@ h1, h2, h3 {
     border: none;
 }
 
-/* --- Poster Section --- */
+/* --- Poster Section (Fullscreen Slide) --- */
 .poster-section {
-    padding: 4rem 2rem 5rem;
+    height: 100vh;
+    width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
+    overflow: hidden;
+    background-color: var(--color-bg);
 }
 
 .poster-container {
-    max-width: 420px;
-    width: 100%;
+    max-height: 85vh;
+    max-width: 550px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .poster-image {
-    width: 100%;
+    max-height: 85vh;
+    width: auto;
     height: auto;
     border-radius: 2px;
     box-shadow: 
@@ -471,7 +480,7 @@ h1, h2, h3 {
 }
 
 .poster-image:hover {
-    transform: scale(1.02) translateY(-4px);
+    transform: scale(1.02);
     box-shadow: 
         0 30px 80px rgba(0, 0, 0, 0.7),
         0 0 60px var(--color-crimson-glow);
