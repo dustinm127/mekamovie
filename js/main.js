@@ -125,22 +125,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // --- YouTube Background Loop (Flawless Loop) ---
 let bgPlayer;
-function onYouTubeIframeAPIReady() {
+let timeMonitorInterval;
+
+// Load YouTube Player API dynamically to guarantee callback order
+const tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+const firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+window.onYouTubeIframeAPIReady = function() {
     bgPlayer = new YT.Player('bg-video', {
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
         }
     });
-}
+};
 
 function onPlayerReady(event) {
     event.target.mute();
     event.target.playVideo();
+    
+    // Check every 250ms to loop video 1s before it officially ends
+    // This stops YouTube from showing the recommendations card overlay
+    clearInterval(timeMonitorInterval);
+    timeMonitorInterval = setInterval(() => {
+        if (bgPlayer && bgPlayer.getCurrentTime && bgPlayer.getDuration) {
+            const currentTime = bgPlayer.getCurrentTime();
+            const duration = bgPlayer.getDuration();
+            if (duration > 0 && currentTime >= duration - 1.5) {
+                bgPlayer.seekTo(0);
+                bgPlayer.playVideo();
+            }
+        }
+    }, 250);
 }
 
 function onPlayerStateChange(event) {
-    // YT.PlayerState.ENDED is 0
+    // Fallback loop if timeMonitor misses it
     if (event.data === YT.PlayerState.ENDED) {
         bgPlayer.seekTo(0);
         bgPlayer.playVideo();
