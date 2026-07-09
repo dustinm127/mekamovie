@@ -235,13 +235,15 @@ h1, h2, h3 {
 }
 
 .tagline {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1rem;
-    font-weight: 300;
-    color: var(--color-sickly-green);
-    letter-spacing: 0.1em;
-    margin-bottom: 2rem;
-    font-style: italic;
-    opacity: 0.85;
+    font-weight: 500;
+    color: var(--color-crimson);
+    letter-spacing: 0.12em;
+    margin-bottom: 2.2rem;
+    font-style: normal;
+    text-transform: uppercase; /* uppercase matches Helvetica design cleanly */
+    opacity: 0.9;
 }
 
 /* Trailer Button */
