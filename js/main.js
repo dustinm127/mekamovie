@@ -108,15 +108,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- Nav background on scroll ---
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            nav.style.background = 'rgba(10, 10, 12, 0.9)';
-            nav.style.backdropFilter = 'blur(10px)';
-            nav.style.webkitBackdropFilter = 'blur(10px)';
-        } else {
-            nav.style.background = 'transparent';
-            nav.style.backdropFilter = 'none';
-            nav.style.webkitBackdropFilter = 'none';
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(10, 10, 12, 0.9)';
+                nav.style.backdropFilter = 'blur(10px)';
+                nav.style.webkitBackdropFilter = 'blur(10px)';
+            } else {
+                nav.style.background = 'transparent';
+                nav.style.backdropFilter = 'none';
+                nav.style.webkitBackdropFilter = 'none';
+            }
+        });
+    }
+});
+
+// --- YouTube Background Loop (Flawless Loop) ---
+let bgPlayer;
+function onYouTubeIframeAPIReady() {
+    bgPlayer = new YT.Player('bg-video', {
+        events: {
+            'onStateChange': onPlayerStateChange
         }
     });
-});
+}
+
+function onPlayerStateChange(event) {
+    // YT.PlayerState.ENDED is 0
+    if (event.data === YT.PlayerState.ENDED) {
+        bgPlayer.seekTo(0);
+        bgPlayer.playVideo();
+    }
+}
