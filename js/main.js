@@ -33,15 +33,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     // --- Trailer Modal ---
-    const trailerBtn = document.getElementById('trailerBtn');
+    const trailerBtn1 = document.getElementById('trailerBtn1');
+    const trailerBtn2 = document.getElementById('trailerBtn2');
     const trailerModal = document.getElementById('trailerModal');
     const trailerModalClose = document.getElementById('trailerModalClose');
     const trailerModalOverlay = document.getElementById('trailerModalOverlay');
     const trailerModalIframe = document.getElementById('trailerModalIframe');
-    const youtubeUrl = 'https://www.youtube.com/embed/63HkKOAqlyQ?autoplay=1&rel=0';
+    const youtubeUrl1 = 'https://www.youtube.com/embed/63HkKOAqlyQ?autoplay=1&rel=0';
+    const youtubeUrl2 = 'https://www.youtube.com/embed/5JmkfLspskw?autoplay=1&rel=0';
 
-    function openTrailerModal() {
-        trailerModalIframe.src = youtubeUrl;
+    function openTrailerModal(url) {
+        trailerModalIframe.src = url;
         trailerModal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -52,10 +54,19 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => { trailerModalIframe.src = ''; }, 400);
     }
 
-    if (trailerBtn && trailerModal) {
-        trailerBtn.addEventListener('click', openTrailerModal);
-        trailerModalClose.addEventListener('click', closeTrailerModal);
-        trailerModalOverlay.addEventListener('click', closeTrailerModal);
+    if (trailerModal) {
+        if (trailerBtn1) {
+            trailerBtn1.addEventListener('click', () => openTrailerModal(youtubeUrl1));
+        }
+        if (trailerBtn2) {
+            trailerBtn2.addEventListener('click', () => openTrailerModal(youtubeUrl2));
+        }
+        if (trailerModalClose) {
+            trailerModalClose.addEventListener('click', closeTrailerModal);
+        }
+        if (trailerModalOverlay) {
+            trailerModalOverlay.addEventListener('click', closeTrailerModal);
+        }
         
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && trailerModal.classList.contains('active')) {

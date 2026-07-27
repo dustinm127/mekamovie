@@ -254,6 +254,10 @@ h1, h2, h3 {
 /* Trailer Button */
 .hero-cta {
     margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .btn-trailer {
