@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEKA — Confidential Industry & Buyer Screening</title>
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .screening-hero {
+            padding: 4rem 1.5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .confidential-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(139, 0, 0, 0.15);
+            border: 1px solid var(--color-crimson);
+            border-radius: 4px;
+            color: #ff8080;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .confidential-dot {
+            width: 8px;
+            height: 8px;
+            background: #ff3333;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #ff3333;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .screening-title-wrap {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .screening-title-wrap h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            letter-spacing: 0.15em;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .screening-title-wrap p {
+            color: var(--color-text-muted);
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .player-container {
+            background: #000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(139, 0, 0, 0.2);
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            margin-bottom: 2.5rem;
+        }
+
+        .player-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .screening-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 900px) {
+            .screening-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card-dark {
+            background: var(--color-bg-elevated);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .card-dark h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 0.8rem;
+        }
+
+        .cast-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .cast-item strong {
+            color: #fff;
+            font-size: 1.05rem;
+            display: block;
+        }
+
+        .cast-item span {
+            color: var(--color-text-muted);
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
+
+        .cast-item .highlight {
+            color: var(--color-sickly-green);
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .specs-table tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .specs-table td {
+            padding: 0.75rem 0;
+        }
+
+        .specs-table td:first-child {
+            color: var(--color-text-muted);
+            font-weight: 500;
+            width: 40%;
+        }
+
+        .specs-table td:last-child {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2) 0%, rgba(17, 17, 20, 0.9) 100%);
+            border: 1px solid rgba(139, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 1.75rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .contact-box h4 {
+            font-family: var(--font-heading);
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-box p {
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-contact {
+            display: inline-block;
+            background: var(--color-crimson);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-contact:hover {
+            background: var(--color-crimson-hover);
+            transform: translateY(-2px);
+        }
+
+        .downloads-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            justify-content: center;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--color-text);
+            padding: 0.65rem 1.25rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-download:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="screening-hero">
+        <div style="text-align: center;">
+            <div class="confidential-badge">
+                <span class="confidential-dot"></span>
+                Confidential Buyer & Industry Screening Room
+            </div>
+        </div>
+
+        <div class="screening-title-wrap">
+            <p class="presents" style="margin-bottom: 0.5rem; letter-spacing: 0.2em;">HUNGRY CHICKEN PICTURES PRESENTS</p>
+            <h1>MEKA</h1>
+            <p>A Feature Film Written & Directed by <strong>Dustin Grant</strong></p>
+        </div>
+
+        <!-- Embedded Vimeo Business Player -->
+        <div class="player-container">
+            <iframe 
+                src="https://player.vimeo.com/video/1225072331?badge=0&autopause=0&player_id=0&app_id=58479" 
+                frameborder="0" 
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                title="MEKA - Full Feature Screener"
+                id="screenerIframe"
+            ></iframe>
+        </div>
+
+        <!-- Downloads / Quick Access Bar -->
+        <div class="downloads-bar">
+            <a href="assets/poster.jpg" target="_blank" class="btn-download">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                High-Res Key Art (1-Sheet)
+            </a>
+            <a href="#specs" class="btn-download">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                Technical Delivery Specs
+            </a>
+            <a href="mailto:dustin@hungrychickenpictures.com?subject=MEKA%20Acquisitions%20Inquiry" class="btn-download" style="border-color: var(--color-crimson); color: #ff9999;">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                Inquire / Request Deal Terms
+            </a>
+        </div>
+
+        <!-- Main Info Grid -->
+        <div class="screening-grid">
+            <!-- Left Column: Synopsis & Cast -->
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+                <div class="card-dark">
+                    <h3>SYNOPSIS</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #ddd; margin-bottom: 1rem;">
+                        A schizophrenic woman escapes her abuser and flees to an isolated rural home, where she is forced into a psychological crucible—battling the relentless voices in her head, the ghosts of her past, and a looming external presence that may or may not be real.
+                    </p>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">
+                        Blending elevated psychological horror, gaslighting tension, and visceral trauma-informed character study, <em>MEKA</em> delivers a relentless thrill ride with marquee crossover genre talent.
+                    </p>
+                </div>
+
+                <div class="card-dark">
+                    <h3>PRINCIPAL CAST</h3>
+                    <div class="cast-list">
+                        <div class="cast-item">
+                            <strong>Tilda McSpadden</strong>
+                            <span>Lead / Protagonist (Breakout dramatic genre performance)</span>
+                        </div>
+                        <div class="cast-item">
+                            <strong>Billy Blair</strong>
+                            <span><em>Sin City: A Dame to Kill For</em>, <em>Alita: Battle Angel</em> (20th Century Fox), Rob Zombie's <em>3 from Hell</em>, <em>Machete Kills</em></span>
+                        </div>
+                        <div class="cast-item">
+                            <strong>Pam Dougherty</strong>
+                            <span><span class="highlight">Suncoast</span> (Searchlight Pictures / Sundance Official Selection starring Woody Harrelson & Laura Linney), <em>Walking Tall</em>, <em>Fullmetal Alchemist</em>, <em>Dragon Ball Z</em></span>
+                        </div>
+                        <div class="cast-item">
+                            <strong>Erica Muse</strong>
+                            <span>Leading Anime & Gaming Voice Star: <span class="highlight">Chainsaw Man</span>, <em>My Hero Academia</em>, <em>Spy × Family</em>, <em>Attack on Titan</em></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Tech Specs & Direct Contact -->
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+                <div class="card-dark" id="specs">
+                    <h3>TECHNICAL SPECS</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <td>Runtime</td>
+                            <td>91 min (01:31:17)</td>
+                        </tr>
+                        <tr>
+                            <td>Genre</td>
+                            <td>Psychological Horror / Thriller</td>
+                        </tr>
+                        <tr>
+                            <td>Year / Status</td>
+                            <td>2026 • Completed (Locked)</td>
+                        </tr>
+                        <tr>
+                            <td>Camera / Capture</td>
+                            <td>ARRI Alexa Mini (Super 35mm Sensor)</td>
+                        </tr>
+                        <tr>
+                            <td>Aspect Ratio</td>
+                            <td>Multi-Aspect Ratio (16:9 / 4:3 Cinematic)</td>
+                        </tr>
+                        <tr>
+                            <td>Picture Master</td>
+                            <td>4K UHD / ProRes 422HQ</td>
+                        </tr>
+                        <tr>
+                            <td>Audio Master</td>
+                            <td>5.1 Surround & 2.0 Stereo (24-bit/48kHz)</td>
+                        </tr>
+                        <tr>
+                            <td>M&E Track</td>
+                            <td>Fully-filled 5.1 & Stereo (Foreign Ready)</td>
+                        </tr>
+                        <tr>
+                            <td>Language</td>
+                            <td>English (with .SRT Captions)</td>
+                        </tr>
+                        <tr>
+                            <td>Production Co.</td>
+                            <td>Hungry Chicken Pictures</td>
+                        </tr>
+                        <tr>
+                            <td>Sound Post</td>
+                            <td>Deaf Mule Recording Studio</td>
+                        </tr>
+                        <tr>
+                            <td>Rights Available</td>
+                            <td><span style="color: #66ff99;">Worldwide All Media Available</span></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="contact-box">
+                    <h4>DIRECT ACQUISITIONS CONTACT</h4>
+                    <p>For sales inquiries, territory pre-sales, festival programming, or full delivery binders:</p>
+                    <p style="color: #fff; font-weight: 600; margin-bottom: 0.25rem;">Dustin Grant</p>
+                    <p style="color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 1.25rem;">Director / Executive Producer • Hungry Chicken Pictures</p>
+                    <a href="mailto:dustin@hungrychickenpictures.com?subject=MEKA%20Acquisitions%20Inquiry" class="btn-contact">Contact Producer</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hungry Chicken Pictures. All Rights Reserved. Confidential Screener Materials.</p>
+    </footer>
+
+</body>
+</html>
