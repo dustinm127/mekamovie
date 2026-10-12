@@ -11,13 +11,13 @@ Release Year: **2026** | Runtime: **91 Minutes (01:31:17)** | Country: **USA**
 * **Original Title:** MEKA
 * **Tagline:** *"What's in your head isn't always yours."*
 * **Primary Genre:** Psychological Horror / Elevated Thriller
-* **Sub-Genres / Themes:** Mental Illness, Schizophrenia, Trauma Recovery, Home Invasion, Gaslighting
-* **Aspect Ratio:** 2.39:1 (Cinemascope)
+* **Sub-Genres / Themes:** Mental Illness, Schizophrenia, Trauma Recovery, Psychological Paranoia, Gaslighting
+* **Aspect Ratio:** Multi-Aspect Ratio (16:9 / 4:3)
 * **Sound Mix:** 5.1 Surround Sound / 2.0 Stereo (24-bit / 48kHz uncompressed)
-* **Master Capture Format:** 4K Digital Cinema
+* **Master Capture Format:** 4K Digital Cinema (ARRI Alexa Mini Super 35mm)
 * **Delivery Formats:** ProRes 422HQ, DCI-Compliant DCP, M&E Foreign Dubbing Stems
 * **Language:** English (with English SDH Closed Captions)
-* **Production Company:** Hungry Chicken Pictures
+* **Production Company:** Hungry Chicken Pictures / Pink Mouse Blue Mouse Productions
 * **In Association With:** Deaf Mule Recording Studio
 * **Worldwide Distribution Rights:** **Available (All Media Worldwide)**
 
@@ -29,7 +29,7 @@ Release Year: **2026** | Runtime: **91 Minutes (01:31:17)** | Country: **USA**
 > *"After escaping a violent abuser, a schizophrenic young woman seeks refuge in an isolated rural house, where the boundary between her inner demons and a sinister external presence begins to violently unravel."*
 
 ### Short Synopsis (50 Words):
-> *"Fleeing an abusive past, a young woman living with schizophrenia isolates herself in an abandoned country house to rebuild her sanity. But as the haunting voices in her head intensify, an ominous presence stalks the property—forcing her into a terrifying psychological crucible where she cannot trust her own senses to survive."*
+> *"Fleeing an abusive past, a young woman living with schizophrenia isolates herself in an abandoned country house to rebuild her sanity. But as the haunting voices in her head intensify, an ominous presence stalks the property—forcing her into a terrifying psychological nightmare where she cannot trust her own senses to survive."*
 
 ### Medium Synopsis (150 Words):
 > *"Traumatized and desperate for sanctuary, Meka—a young woman diagnosed with severe schizophrenia—escapes her abusive partner and flees into the rural countryside, taking shelter in a secluded, empty home.*
@@ -74,8 +74,8 @@ Erica Muse is a leading voice actress and screen talent recognized globally acro
 
 ## 5. KEY CREW & PRODUCTION PARTNERS
 
-* **Writer, Director & Editor:** Dustin Grant
-* **Production Company:** Hungry Chicken Pictures
+* **Writer, Director & Editor:** Dustin Grant (Feature Directorial Debut)
+* **Production Company:** Hungry Chicken Pictures / Pink Mouse Blue Mouse Productions
 * **Post-Production Sound & Mix:** Deaf Mule Recording Studio (Dallas, TX)
 * **Sound Supervisor / Re-Recording Mixers:** Deaf Mule Post Team
 * **Original Score / Compositions:** [Composer Name] (ASCAP)
@@ -86,7 +86,7 @@ Erica Muse is a leading voice actress and screen talent recognized globally acro
 
 * **Authentic Psychological Soundscape:** The auditory landscape of *MEKA* was engineered in close collaboration with Dallas-based Deaf Mule Recording Studio to simulate the disorienting, binaural experience of auditory hallucinations, panic-induced tinnitus, and sonic claustrophobia.
 * **A Pure Auteur Vision:** Conceived, written, directed, financed, and edited independently by Dustin Grant, *MEKA* was produced with complete creative autonomy and an unbroken chain of title, delivering a singular, uncompromising vision tailored for theatrical and prestige streaming distribution.
-* **Elevated Genre Comps:** *MEKA* strategically bridges the gap between auteur psychological horror (*Saint Maud*, *Relic*, *They Look Like People*) and commercial high-tension home invasion thrillers (*The Invisible Man*, *Hush*).
+* **Elevated Genre Comps:** *MEKA* strategically bridges the gap between auteur psychological horror (*Saint Maud*, *Relic*, *They Look Like People*) and commercial slow-burn suspense (*The Invisible Man*, *The Blackcoat's Daughter*).
 
 ---
 
